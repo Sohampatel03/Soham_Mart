@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: Soham_Mart
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn ecommerce_site.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: ecommerce_site.settings
+      - key: PYTHON_VERSION
+        value: 3.11
