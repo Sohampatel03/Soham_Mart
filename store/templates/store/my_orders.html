@@ -1,0 +1,31 @@
+    {% extends 'base.html' %}
+    {% load cart_tags %}
+    {% block content %}
+    <div class="container mt-4">
+        <h2>My Orders</h2>
+
+        {% if orders %}
+            {% for order in orders %}
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <strong>Order ID:</strong> {{ order.id }} | 
+                        <strong>Date:</strong> {{ order.created_at|date:"d M, Y H:i" }} |
+                       <strong>Total:</strong> ₹{{ order.total }}
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            {% for item in order.orderitem_set.all %}
+                                <li class="list-group-item d-flex justify-content-between">
+                                    {{ item.product.name }} × {{ item.quantity }}
+                                    <span>₹{{ item.quantity }} x ₹{{ item.product.price }} = ₹{{ item.quantity|mul:item.product.price }}</span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>You have not placed any orders yet.</p>
+        {% endif %}
+    </div>
+    {% endblock %}

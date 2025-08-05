@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Checkout</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label>Name:</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Address:</label>
+            <textarea name="address" class="form-control" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label>Phone:</label>
+            <input type="text" name="phone" class="form-control" required>
+        </div>
+
+        <h5 class="mt-4">Items:</h5>
+        <ul class="list-group mb-3">
+            {% for item in items %}
+            <li class="list-group-item d-flex justify-content-between">
+                {{ item.product.name }} (x{{ item.quantity }})
+                <span>₹{{ item.product.price|floatformat:2 }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h5>Total: ₹{{ total }}</h5>
+
+        <button type="submit" class="btn btn-success mt-3">Place Order</button>
+    </form>
+</div>
+{% endblock %}

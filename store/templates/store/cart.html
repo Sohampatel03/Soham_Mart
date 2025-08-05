@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Your Cart</h2>
+
+    {% if items %}
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>₹{{ item.product.price }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>₹{{ item.total }}</td>
+                    <td>
+                        <!-- Quantity Controls -->
+                        <div class="d-flex align-items-center mb-2">
+                            <a href="{% url 'decrease_quantity' item.product.id %}" class="btn btn-outline-secondary btn-sm">−</a>
+                            <span class="mx-2">{{ item.quantity }}</span>
+                            <a href="{% url 'increase_quantity' item.product.id %}" class="btn btn-outline-secondary btn-sm">+</a>
+                        </div>
+                        <!-- Remove Button -->
+                        <a href="{% url 'remove_from_cart' item.product.id %}" 
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('Are you sure you want to remove this item from cart?');">
+                           ❌ Remove
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h4 class="mt-4">🧾 Total Amount: ₹{{ total }}</h4>
+
+        <!-- ✅ Empty Cart Button -->
+        <a href="{% url 'empty_cart' %}" 
+           class="btn btn-warning mt-3"
+           onclick="return confirm('Are you sure you want to empty your entire cart?');">
+           🗑️ Empty Cart
+        </a>
+        <a href="{% url 'checkout' %}" class="btn btn-primary mt-2">🧾 Proceed to Checkout</a>
+
+
+    {% else %}
+        <p>Your cart is empty.</p>
+    {% endif %}
+</div>
+{% endblock %}

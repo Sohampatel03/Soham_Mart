@@ -1,0 +1,71 @@
+/* ---------- GENERAL ---------- */
+body {
+  background-color: #f5f7fa;
+}
+
+/* ---------- PRODUCT LISTING ---------- */
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.card-body {
+  background-color: #fff;
+  padding: 16px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.btn-primary {
+  background-color: #2b68ff;
+  border-color: #2b68ff;
+  border-radius: 6px;
+  padding: 6px 16px;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: #215be0;
+  border-color: #215be0;
+}
+
+/* ---------- RESPONSIVE LAYOUT ---------- */
+@media (max-width: 767px) {
+  .col-md-4 {
+    margin-bottom: 20px;
+  }
+
+  .card {
+    width: 100% !important;
+  }
+
+  h2.mb-4 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+}

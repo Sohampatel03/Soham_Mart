@@ -1,0 +1,86 @@
+/* ---------- CART TABLE STYLING ---------- */
+table.table {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table.table th,
+table.table td {
+  vertical-align: middle;
+}
+
+table.table th {
+  background-color: #343a40 !important;
+  color: #fff;
+}
+
+table.table td {
+  padding: 12px 10px;
+  font-size: 0.95rem;
+}
+
+/* ---------- QUANTITY CONTROLS ---------- */
+.d-flex.align-items-center.mb-2 {
+  justify-content: flex-start;
+}
+
+.d-flex.align-items-center.mb-2 a.btn {
+  min-width: 30px;
+  text-align: center;
+  padding: 4px 8px;
+}
+
+/* ---------- TOTAL & ACTIONS ---------- */
+h4.mt-4 {
+  font-weight: bold;
+  color: #333;
+}
+
+.btn.btn-warning,
+.btn.btn-primary {
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 6px 14px;
+  margin-right: 10px;
+}
+
+.btn.btn-danger.btn-sm {
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+/* ---------- EMPTY CART MESSAGE ---------- */
+p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* ---------- RESPONSIVE TABLE ---------- */
+@media (max-width: 768px) {
+  table.table {
+    font-size: 0.85rem;
+  }
+
+  .d-flex.align-items-center.mb-2 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .d-flex.align-items-center.mb-2 a.btn {
+    margin-bottom: 5px;
+  }
+
+  h4.mt-4 {
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}
+
+body {
+  background-color: #eef3f8 !important;
+}
